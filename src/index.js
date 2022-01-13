@@ -1,2 +1,4 @@
-const test = require('./js/test')
-console.log('第一k1222')
+const a = () => {
+  console.log('哈哈12')
+}
+a()

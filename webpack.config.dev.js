@@ -3,11 +3,15 @@ const webpack = require('webpack')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
-  mode: 'development',  // 模式 默认两种 production development
-  entry: {
-    index: './src/index.js',
-    login: './src/login.js'
+  devtool: 'source-map',
+  watch:true,
+  watchOptions:{ // 监控的选项
+    poll:1000, // 每秒 问我 1000次
+    aggregateTimeout:500, // 防抖 我一直输入代码
+    ignored:/node_modules/ // 不需要进行监控哪个文件
   },
+  mode: 'development',  // 模式 默认两种 production development
+  entry: './src/index.js',
   output: {
     filename: 'js/[name].[hash].js', //这个主要作用是将打包后的js已hash值的编码方式来生成出来
     path: path.resolve(__dirname, './dist')
@@ -18,37 +22,25 @@ module.exports = {
     open: true,
     hot: true
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      }
+    ]
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: "./src/html/index.html",
-      filename: "html/index.html",
-      chunks: ['index'],
-      minify: {
-        // collapseWhitespace: true,
-        // keepClosingSlash: true,
-        // removeComments: true,
-        // removeRedundantAttributes: true,
-        // removeScriptTypeAttributes: true,
-        // removeStyleLinkTypeAttributes: true,
-        // useShortDoctype: true
-      }
-    }),
-    new HtmlWebpackPlugin({
-      template: "./src/html/login.html",
-      filename: "html/login.html",
-      chunks: ['login'],
-      publicPath: '/html/',
-      minify: {
-        // collapseWhitespace: true,
-        // keepClosingSlash: true,
-        // removeComments: true,
-        // removeRedundantAttributes: true,
-        // removeScriptTypeAttributes: true,
-        // removeStyleLinkTypeAttributes: true,
-        // useShortDoctype: true
-      }
+      template: "./src/index.html",
+      filename: "index.html"
     })
   ]
 }
