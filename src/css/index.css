@@ -2,5 +2,7 @@ body {
     background: red;
     border: 1px solid blue;
     display: flex;
+    background: url("../img/2.jpg");
+    background-repeat: no-repeat;
 }
 /*css-minimizer-webpack-plugin*/

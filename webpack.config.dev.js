@@ -18,7 +18,8 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'js/[name].[hash].js', //这个主要作用是将打包后的js已hash值的编码方式来生成出来
-    path: path.resolve(__dirname, './dist')
+    path: path.resolve(__dirname, './dist'),
+    // publicPath: "http://wangling.com/", // 每个引入到html里的都加上这样一个基础路径
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'), // 默认展示的目录
@@ -63,7 +64,9 @@ module.exports = {
           loader: "url-loader",
           options: {
             limit: 1024,
-            name: 'image/[name].[hash].[ext]'
+            name: '[name].[hash].[ext]',
+            outputPath: './img/',
+            // publicPath: 'http://img.com/img/'
           }
         }
       },
@@ -90,7 +93,7 @@ module.exports = {
       filename: "index.html"
     }),
     new MiniCssExtractPlugin({
-      fileName: 'main.css'
+      fileName: 'css/main.css'
     }),
     new webpack.ProvidePlugin({ // 在每个模块中都注入$和publicUtils
       $:'jquery',
