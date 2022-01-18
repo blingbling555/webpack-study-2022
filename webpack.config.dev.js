@@ -58,6 +58,22 @@ module.exports = {
         }
       },
       {
+        test: /\.(png|jpe?g|gif)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 1024,
+            name: 'image/[name].[hash].[ext]'
+          }
+        }
+      },
+      {
+        test: /\.html?$/,
+        use: {
+          loader: "html-withimg-loader",
+        }
+      },
+      {
         test: require.resolve('jquery'),
         loader: 'expose-loader',
         options: {
