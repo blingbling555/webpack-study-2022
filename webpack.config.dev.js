@@ -56,6 +56,13 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      {
+        test: require.resolve('jquery'),
+        loader: 'expose-loader',
+        options: {
+          exposes: ['$', 'jQuery'],
+        },
       }
     ]
   },

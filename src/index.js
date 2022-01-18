@@ -1,10 +1,8 @@
-
+// import "expose-loader?exposes=publicUtils!jquery";
+import "expose-loader?exposes=publicUtils!./globalFunc";
+import login from './login'
 import './css/index.css'
 import './css/index.less'
-debugger
-const a = () => {
-  console.log('哈哈12')
-}
-a()
-console.log('yichle')
+console.log(publicUtils, 'index.js')
+
 
