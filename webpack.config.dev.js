@@ -14,7 +14,7 @@ module.exports = {
     aggregateTimeout:500, // 防抖 我一直输入代码
     ignored:/node_modules/ // 不需要进行监控哪个文件
   },
-  mode: 'production',  // 模式 默认两种 production development
+  mode: 'development',  // 模式 默认两种 production development
   entry: './src/index.js',
   output: {
     filename: 'js/[name].[hash].js', //这个主要作用是将打包后的js已hash值的编码方式来生成出来
@@ -75,6 +75,13 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       fileName: 'main.css'
+    }),
+    new webpack.ProvidePlugin({ // 在每个模块中都注入$和publicUtils
+      $:'jquery',
+      publicUtils: './globalFunc',
+      // EVIRONMENT: '1' 不知道为什么会报错
+      GlobalVariable: './GlobalVariable',
+      lodash: 'lodash'
     })
   ],
   // 优化项
