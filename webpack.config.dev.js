@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const  MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const optimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   devtool: 'eval-source-map',
   watch:false,
@@ -101,8 +101,14 @@ module.exports = {
       // EVIRONMENT: '1' 不知道为什么会报错
       GlobalVariable: './GlobalVariable',
       lodash: 'lodash'
-    })
+    }),
+    new CopyWebpackPlugin([{
+      from: './doc',
+      to: './doc' // 会打包到dist/doc里
+    }]),
+    new webpack.BannerPlugin('make by wangling'), // 字符串就是版权声明
   ],
+
   // 优化项
   optimization: {
     minimizer: [
