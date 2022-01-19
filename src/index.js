@@ -16,5 +16,8 @@ console.log(img1) // b0478990a400c8846399d1629bf15b3d.jpg
 image.src = img1; // 就是一个普通的字符串
 document.body.appendChild(image);
 
+// 环境变量
+console.log(myAdd(11,11),NODE_ENV)
+
 
 
