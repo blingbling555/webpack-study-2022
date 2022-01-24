@@ -6,4 +6,15 @@
 // require('!inline-loader!./a')
 // 什么都不要，只要内联
 // require('!!inline-loader!./a')
-console.log('haha')
+// console.log('haha')
+class MyName {
+  constructor(name) {
+    this.name = name
+  }
+  getName() {
+    return this.name
+  }
+}
+const name = new MyName('wangling')
+console.log(name.getName())
+

@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
@@ -13,7 +13,12 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: ['loader3', 'loader2', 'loader1']
+        use: {
+          loader: "custom-babel-loader",
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       }
     ]
   }
