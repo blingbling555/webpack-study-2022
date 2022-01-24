@@ -19,17 +19,31 @@
 // 环境变量
 // console.log(myAdd(11,11),NODE_ENV)
 
-import jquery from 'jquery'
-import lodash from 'lodash'
-import moment from 'moment'
+// import jquery from 'jquery'
+// import lodash from 'lodash'
+// import moment from 'moment'
+//
+// import React from 'react'
+// import  ReactDom from 'react-dom'
+// console.log(jquery, lodash)
+//
+// console.log(moment().startOf('day').fromNow(), 'haha')
+//
+// ReactDom.render(<h1>jsx</h1>,  document.getElementById('app'))
 
-import React from 'react'
-import  ReactDom from 'react-dom'
-console.log(jquery, lodash)
+// import { sum } from './test'
+// console.log(sum(1 , 2))
+// // scope hosting 作用域提升 - 去看打包结果
+// let a = 1;
+// let b = 2;
+// let c = 3;
+// let d = a+b+c; // 在webpack中自动省略 可以简化的代码
+// console.log(d,'-------------');
 
-console.log(moment().startOf('day').fromNow(), 'haha')
-
-ReactDom.render(<h1>jsx</h1>,  document.getElementById('app'))
+import login from './login'
+import { model1 } from "./js/model1";
+import { model2 } from "./js/model2";
+console.log(model1(), model2())
 
 
 

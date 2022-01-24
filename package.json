@@ -7,8 +7,9 @@
     "dev:build": "webpack --config webpack.dev.js",
     "dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "build:dll": "webpack --config webpack.dll.config.js && npm run build",
-    "dll": "webpack --config webpack.dll.config.js"
+    "dll": "webpack --config webpack.dll.config.js",
+    "build:dll": "npm run dll && npm run build",
+    "dev:dll": "npm run dll && npm run dev"
   },
   "keywords": [],
   "author": "",

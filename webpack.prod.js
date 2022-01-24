@@ -31,7 +31,7 @@ const mergeConfig = merge(base,{
     ],
   },
   plugins:[
-    new webpack.BannerPlugin('make by wangling'), // 字符串就是版权声明
+    // new webpack.BannerPlugin('make by wangling'), // 字符串就是版权声明
     new webpack.ProvidePlugin({
       'NODE_ENV': '../.env.prod'
     }),
