@@ -1,5 +1,5 @@
 function loader(source) {
-  console.log('inner-loader')
+  console.log('inner-loader', source)
   return source
 }
 

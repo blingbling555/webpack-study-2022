@@ -7,14 +7,20 @@
 // 什么都不要，只要内联
 // require('!!inline-loader!./a')
 // console.log('haha')
-class MyName {
-  constructor(name) {
-    this.name = name
-  }
-  getName() {
-    return this.name
-  }
-}
-const name = new MyName('wangling')
-console.log(name.getName())
+// class MyName {
+//   constructor(name) {
+//     this.name = name
+//   }
+//   getName() {
+//     return this.name
+//   }
+// }
+// const name = new MyName('wangling')
+// console.log(name.getName())
+
+import imgUrl from './images/zly.jpg'
+const img = new Image()
+img.src = imgUrl
+document.body.appendChild(img)
+
 

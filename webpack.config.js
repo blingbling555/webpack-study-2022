@@ -19,6 +19,21 @@ module.exports = {
             presets: ['@babel/preset-env']
           }
         }
+      },
+      // {
+      //   test: /\.js$/,
+      //   use: {
+      //     loader: "test-api-loader?rrr",
+      //     // options: {
+      //     //   customProps: 'wangling'
+      //     // }
+      //   }
+      // },
+      {
+        test: /\.jpg$/,
+        use: {
+          loader: "custom-file-loader"
+        }
       }
     ]
   }
