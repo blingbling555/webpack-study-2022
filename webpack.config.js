@@ -32,8 +32,12 @@ module.exports = {
       {
         test: /\.jpg$/,
         use: {
-          loader: "custom-file-loader"
+          loader: "custom-url-loader"
         }
+      },
+      {
+        test: /\.less$/,
+        use: ['custom-style-loader', 'custom-css-loader', 'custom-less-loader']
       }
     ]
   }

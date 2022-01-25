@@ -18,9 +18,11 @@
 // const name = new MyName('wangling')
 // console.log(name.getName())
 
-import imgUrl from './images/zly.jpg'
-const img = new Image()
-img.src = imgUrl
-document.body.appendChild(img)
+// import imgUrl from './images/zly.jpg'
+// const img = new Image()
+// img.src = imgUrl
+// document.body.appendChild(img)
+
+import './css/index.less'
 
 
